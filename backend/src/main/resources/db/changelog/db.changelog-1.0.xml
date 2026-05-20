@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="1.0-create-profile" author="portfolio">
+        <createTable tableName="profile">
+            <column name="id" type="bigint" autoIncrement="true"><constraints primaryKey="true" nullable="false"/></column>
+            <column name="full_name" type="varchar(100)"><constraints nullable="false"/></column>
+            <column name="title" type="varchar(150)"><constraints nullable="false"/></column>
+            <column name="bio" type="text"><constraints nullable="false"/></column>
+            <column name="email" type="varchar(150)"/>
+            <column name="phone" type="varchar(30)"/>
+            <column name="location" type="varchar(100)"/>
+            <column name="github_url" type="varchar(255)"/>
+            <column name="linkedin_url" type="varchar(255)"/>
+            <column name="avatar_url" type="varchar(255)"/>
+            <column name="resume_url" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="1.0-create-project" author="portfolio">
+        <createTable tableName="project">
+            <column name="id" type="bigint" autoIncrement="true"><constraints primaryKey="true" nullable="false"/></column>
+            <column name="title" type="varchar(150)"><constraints nullable="false"/></column>
+            <column name="description" type="text"><constraints nullable="false"/></column>
+            <column name="image_url" type="varchar(255)"/>
+            <column name="repo_url" type="varchar(255)"/>
+            <column name="demo_url" type="varchar(255)"/>
+            <column name="tech_stack" type="varchar(500)"/>
+            <column name="featured" type="boolean" defaultValueBoolean="false"><constraints nullable="false"/></column>
+            <column name="sort_order" type="int" defaultValueNumeric="0"><constraints nullable="false"/></column>
+            <column name="created_at" type="timestamp" defaultValueComputed="CURRENT_TIMESTAMP"><constraints nullable="false"/></column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="1.0-create-skill" author="portfolio">
+        <createTable tableName="skill">
+            <column name="id" type="bigint" autoIncrement="true"><constraints primaryKey="true" nullable="false"/></column>
+            <column name="name" type="varchar(100)"><constraints nullable="false"/></column>
+            <column name="category" type="varchar(80)"><constraints nullable="false"/></column>
+            <column name="level" type="int"><constraints nullable="false"/></column>
+            <column name="icon_url" type="varchar(255)"/>
+            <column name="sort_order" type="int" defaultValueNumeric="0"><constraints nullable="false"/></column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="1.0-create-contact-message" author="portfolio">
+        <createTable tableName="contact_message">
+            <column name="id" type="bigint" autoIncrement="true"><constraints primaryKey="true" nullable="false"/></column>
+            <column name="name" type="varchar(100)"><constraints nullable="false"/></column>
+            <column name="email" type="varchar(150)"><constraints nullable="false"/></column>
+            <column name="subject" type="varchar(200)"/>
+            <column name="message" type="text"><constraints nullable="false"/></column>
+            <column name="is_read" type="boolean" defaultValueBoolean="false"><constraints nullable="false"/></column>
+            <column name="created_at" type="timestamp" defaultValueComputed="CURRENT_TIMESTAMP"><constraints nullable="false"/></column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="1.0-seed-profile" author="portfolio">
+        <insert tableName="profile">
+            <column name="full_name" value="Hamza Hassan"/>
+            <column name="title" value="Full-Stack Developer"/>
+            <column name="bio" value="Passionate developer who loves building elegant solutions to complex problems."/>
+            <column name="email" value="you@example.com"/>
+            <column name="github_url" value="https://github.com/hamzahassancode"/>
+            <column name="linkedin_url" value="https://linkedin.com/in/hamzahassan0"/>
+            <column name="location" value="Amman, Jordan"/>
+        </insert>
+        <rollback>
+            <delete tableName="profile"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="1.0-seed-skills" author="portfolio">
+        <insert tableName="skill"><column name="name" value="Kotlin"/><column name="category" value="Backend"/><column name="level" value="5"/><column name="sort_order" value="1"/></insert>
+        <insert tableName="skill"><column name="name" value="Spring Boot"/><column name="category" value="Backend"/><column name="level" value="5"/><column name="sort_order" value="2"/></insert>
+        <insert tableName="skill"><column name="name" value="Java"/><column name="category" value="Backend"/><column name="level" value="4"/><column name="sort_order" value="3"/></insert>
+        <insert tableName="skill"><column name="name" value="PostgreSQL"/><column name="category" value="Database"/><column name="level" value="4"/><column name="sort_order" value="4"/></insert>
+        <insert tableName="skill"><column name="name" value="React"/><column name="category" value="Frontend"/><column name="level" value="4"/><column name="sort_order" value="5"/></insert>
+        <insert tableName="skill"><column name="name" value="TypeScript"/><column name="category" value="Frontend"/><column name="level" value="4"/><column name="sort_order" value="6"/></insert>
+        <insert tableName="skill"><column name="name" value="Docker"/><column name="category" value="DevOps"/><column name="level" value="3"/><column name="sort_order" value="7"/></insert>
+        <rollback>
+            <delete tableName="skill"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="1.0-seed-projects" author="portfolio">
+        <insert tableName="project">
+            <column name="title" value="Portfolio Website"/>
+            <column name="description" value="Personal portfolio built with Kotlin Spring Boot and React."/>
+            <column name="tech_stack" value="Kotlin,Spring Boot,React,TypeScript,PostgreSQL"/>
+            <column name="repo_url" value="https://github.com/hamzahassancode/portfolio"/>
+            <column name="featured" valueBoolean="true"/>
+            <column name="sort_order" value="1"/>
+        </insert>
+        <rollback>
+            <delete tableName="project"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="1.0-seed-github-projects" author="portfolio">
+        <insert tableName="project">
+            <column name="title" value="Cardio Disease Prediction AI"/>
+            <column name="description" value="An AI project predicting cardiovascular diseases by exploring and analyzing a Kaggle dataset. Includes classical machine learning models and fine-tuned neural networks, achieving 73% accuracy with a detailed comparison of model performance."/>
+            <column name="tech_stack" value="Python,Machine Learning,Neural Networks,Kaggle"/>
+            <column name="repo_url" value="https://github.com/hamzahassancode/Cardio-Disease-Prediction-AI"/>
+            <column name="featured" valueBoolean="true"/>
+            <column name="sort_order" value="2"/>
+        </insert>
+        <insert tableName="project">
+            <column name="title" value="Decentralized Cluster-Based NoSQL Database"/>
+            <column name="description" value="A distributed NoSQL database system handling JSON-based document storage, supporting full DB and document operations. Addresses load balancing, data consistency, security, and efficient node communication. Solves key challenges like document-to-node affinity, optimistic locking, and custom indexing."/>
+            <column name="tech_stack" value="Java,Distributed Systems,NoSQL,Clustering"/>
+            <column name="repo_url" value="https://github.com/hamzahassancode/Decentralized-Cluster-Based-NoSQL-Database"/>
+            <column name="featured" valueBoolean="true"/>
+            <column name="sort_order" value="3"/>
+        </insert>
+        <insert tableName="project">
+            <column name="title" value="Microservices Student Grades System"/>
+            <column name="description" value="A containerized microservices system for student data collection and analytics. Handles grade tracking, reporting, and analysis across independently deployable services."/>
+            <column name="tech_stack" value="Java,Spring Boot,Microservices,Docker"/>
+            <column name="repo_url" value="https://github.com/hamzahassancode/Microservices-system"/>
+            <column name="featured" valueBoolean="false"/>
+            <column name="sort_order" value="4"/>
+        </insert>
+        <insert tableName="project">
+            <column name="title" value="Money Transfer Full-Stack App"/>
+            <column name="description" value="A full-stack money transfer application built with Spring Boot backend and React frontend, enabling users to manage accounts and perform secure fund transfers."/>
+            <column name="tech_stack" value="Spring Boot,React,Java,REST API"/>
+            <column name="repo_url" value="https://github.com/hamzahassancode/cliq-transfer-springboot-react"/>
+            <column name="featured" valueBoolean="false"/>
+            <column name="sort_order" value="5"/>
+        </insert>
+        <insert tableName="project">
+            <column name="title" value="Flutter Water Pump Automation App"/>
+            <column name="description" value="A comprehensive Flutter mobile app for monitoring and managing water pump processes within homes. Provides real-time control and automation of water management systems."/>
+            <column name="tech_stack" value="Flutter,Dart,IoT,Mobile"/>
+            <column name="repo_url" value="https://github.com/hamzahassancode/Flutter-App-Water-pump-Automation"/>
+            <column name="featured" valueBoolean="false"/>
+            <column name="sort_order" value="6"/>
+        </insert>
+        <insert tableName="project">
+            <column name="title" value="Uno Game Engine"/>
+            <column name="description" value="An extensible Uno card game engine built with object-oriented design patterns, enabling developers to build and extend Uno game variants with minimal effort."/>
+            <column name="tech_stack" value="Java,OOP,Design Patterns,Game Engine"/>
+            <column name="repo_url" value="https://github.com/hamzahassancode/Uno-Game-Engine"/>
+            <column name="featured" valueBoolean="false"/>
+            <column name="sort_order" value="7"/>
+        </insert>
+        <insert tableName="project">
+            <column name="title" value="The Old Maid Card Game"/>
+            <column name="description" value="A multithreaded Java simulation of the Old Maid card game where each player runs as an independent thread, demonstrating Java concurrency and thread synchronization."/>
+            <column name="tech_stack" value="Java,Multithreading,Concurrency"/>
+            <column name="repo_url" value="https://github.com/hamzahassancode/The-Old-Maid-Card-Game"/>
+            <column name="featured" valueBoolean="false"/>
+            <column name="sort_order" value="8"/>
+        </insert>
+        <rollback>
+            <sql>DELETE FROM project WHERE sort_order &gt; 1</sql>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>
