@@ -36,8 +36,19 @@ export const experiences: Experience[] = [
           'Extended billing with prepaid plans and per-channel service-message pricing.',
         ],
       },
+      {
+        name: 'Platform & engineering',
+        points: [
+          'Built event-driven services on Google Cloud: publishing and consuming Protobuf events over Pub/Sub with backward-compatible schema changes, deployed on Cloud Run.',
+          'Used Redis for caching, deduplication, rate limiting, and feature flags in a multi-tenant SaaS platform.',
+          'Modelled data in PostgreSQL with Flyway migrations and type-safe jOOQ queries, and fed analytics and reporting views in BigQuery.',
+          'Wrote non-blocking Kotlin services with coroutines on reactive Spring, and made webhook and message processing reliable with idempotency, retries, rate limits, circuit breakers, and HMAC signature checks.',
+          'Added tracing and latency telemetry, backed changes with integration tests (WireMock, real databases), and kept OpenAPI-generated clients in sync for web and iOS.',
+          'Worked across an ongoing Scala-to-Kotlin migration, and used an AI-assisted workflow (Claude Code) for planning, implementation, and code review.',
+        ],
+      },
     ],
-    tech: ['Kotlin', 'Spring Boot', 'React', 'TypeScript', 'PostgreSQL', 'Redis', 'Pub/Sub', 'Protobuf', 'Meta Graph API'],
+    tech: ['Kotlin', 'Coroutines', 'Spring Boot', 'Scala', 'React', 'TypeScript', 'PostgreSQL', 'jOOQ', 'Flyway', 'Redis', 'Pub/Sub', 'Protobuf', 'BigQuery', 'Cloud Run', 'WireMock', 'Meta Graph API'],
   },
   {
     role: 'Software Engineer',
@@ -105,13 +116,13 @@ export const experiences: Experience[] = [
 ];
 
 export const skillGroups: SkillGroup[] = [
-  { category: 'Languages', skills: ['Kotlin', 'Java', 'Python', 'Dart', 'C++', 'JavaScript', 'TypeScript'] },
-  { category: 'Backend & APIs', skills: ['Spring Boot', 'RESTful APIs', 'Webhooks', 'Protobuf', 'FastAPI', 'Django'] },
+  { category: 'Languages', skills: ['Kotlin', 'Java', 'Scala', 'Python', 'TypeScript', 'JavaScript', 'Dart', 'C++'] },
+  { category: 'Backend & APIs', skills: ['Spring Boot', 'Kotlin Coroutines', 'RESTful APIs', 'Webhooks', 'Event-driven architecture', 'Protobuf', 'OpenAPI', 'FastAPI', 'Django'] },
   { category: 'Messaging & Integrations', skills: ['WhatsApp Business API', 'Instagram API', 'Messenger API', 'Telegram Bot API'] },
   { category: 'Payments', skills: ['SWIFT MT', 'ISO 20022 MX', 'Message validation', 'Transaction processing'] },
-  { category: 'Databases', skills: ['PostgreSQL', 'MySQL', 'Redis', 'NoSQL', 'jOOQ', 'Liquibase'] },
-  { category: 'Cloud & DevOps', skills: ['Docker', 'Kubernetes', 'Google Cloud', 'Pub/Sub', 'CI/CD', 'Git', 'Linux'] },
-  { category: 'Testing', skills: ['JUnit', 'Mockito', 'AssertJ', 'WireMock', 'RestAssured'] },
+  { category: 'Data', skills: ['PostgreSQL', 'MySQL', 'Redis', 'BigQuery', 'NoSQL', 'jOOQ', 'Flyway', 'Liquibase'] },
+  { category: 'Cloud & DevOps', skills: ['Google Cloud', 'Cloud Run', 'Pub/Sub', 'Docker', 'Kubernetes', 'CI/CD', 'Observability', 'Git', 'Linux'] },
+  { category: 'Testing', skills: ['JUnit', 'Mockito', 'AssertJ', 'WireMock', 'RestAssured', 'Integration testing'] },
   { category: 'Frontend & Mobile', skills: ['React', 'TypeScript', 'HTML', 'CSS', 'Flutter'] },
 ];
 

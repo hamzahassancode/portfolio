@@ -83,7 +83,16 @@ li::marker { color: #b07443; }
     <li>Switched outbound WhatsApp audio to native <b>voice messages</b> with an OGG/Opus transcoding path, and fixed template-send failures.</li>
     <li>Extended billing with prepaid plans and per-channel service-message pricing.</li>
   </ul>
-  <p class="tech"><b>Tech:</b> Kotlin, Spring Boot, React, TypeScript, PostgreSQL, Redis, Google Cloud Pub/Sub, Protobuf, Meta Graph API, Telegram Bot API</p>
+  <h3>Platform &amp; Engineering</h3>
+  <ul>
+    <li>Built <b>event-driven services on Google Cloud</b>: publishing and consuming Protobuf events over <b>Pub/Sub</b> with backward-compatible schema changes, deployed on <b>Cloud Run</b>.</li>
+    <li>Used <b>Redis</b> for caching, deduplication, rate limiting, and feature flags in a multi-tenant SaaS platform.</li>
+    <li>Modelled data in <b>PostgreSQL</b> with Flyway migrations and type-safe <b>jOOQ</b> queries, and fed analytics and reporting views in <b>BigQuery</b>.</li>
+    <li>Wrote non-blocking Kotlin services with <b>coroutines</b> on reactive Spring, and made webhook and message processing reliable with idempotency, retries, rate limits, circuit breakers, and HMAC signature checks.</li>
+    <li>Added tracing and latency telemetry, backed changes with integration tests (WireMock, real databases), and kept OpenAPI-generated clients in sync for web and iOS.</li>
+    <li>Worked across an ongoing <b>Scala-to-Kotlin migration</b>, and used an AI-assisted workflow (Claude Code) for planning, implementation, and code review.</li>
+  </ul>
+  <p class="tech"><b>Tech:</b> Kotlin (coroutines), Spring Boot, Scala, React, TypeScript, PostgreSQL, jOOQ, Flyway, Redis, Google Cloud (Pub/Sub, Cloud Run, BigQuery), Protobuf, WireMock, Meta Graph API, Telegram Bot API</p>
 </div>
 
 <div class="job">
@@ -197,12 +206,12 @@ li::marker { color: #b07443; }
 
 <h2>Technical Skills</h2>
 <dl class="skills">
-  <dt>Languages</dt><dd>Kotlin, Java, Python, TypeScript, JavaScript, Dart, C++</dd>
-  <dt>Backend &amp; APIs</dt><dd>Spring Boot, RESTful APIs, Webhooks, Protobuf, FastAPI, Django, Servlets</dd>
+  <dt>Languages</dt><dd>Kotlin, Java, Scala, Python, TypeScript, JavaScript, Dart, C++</dd>
+  <dt>Backend &amp; APIs</dt><dd>Spring Boot, Kotlin Coroutines, RESTful APIs, Webhooks, Event-driven architecture, Protobuf, OpenAPI, FastAPI, Django, Servlets</dd>
   <dt>Messaging &amp; Payments</dt><dd>WhatsApp Business API, Instagram &amp; Messenger APIs, Telegram Bot API, SWIFT MT, ISO 20022 MX</dd>
   <dt>Frontend &amp; Mobile</dt><dd>React, HTML, CSS, Flutter</dd>
-  <dt>Databases</dt><dd>PostgreSQL, MySQL, Redis, NoSQL, H2, jOOQ, Liquibase</dd>
-  <dt>Cloud &amp; DevOps</dt><dd>Docker, Kubernetes (MicroK8s), Google Cloud, Pub/Sub, CI/CD (GitLab), Git, Linux</dd>
+  <dt>Data</dt><dd>PostgreSQL, MySQL, Redis, BigQuery, NoSQL, H2, jOOQ, Flyway, Liquibase</dd>
+  <dt>Cloud &amp; DevOps</dt><dd>Google Cloud (Cloud Run, Pub/Sub, BigQuery), Docker, Kubernetes (MicroK8s), CI/CD (GitLab), Observability, Git, Linux</dd>
   <dt>Testing</dt><dd>JUnit, AssertJ, Mockito, WireMock, RestAssured, integration testing</dd>
 </dl>
 
