@@ -42,7 +42,6 @@ export const experiences: Experience[] = [
           'Built event-driven services on Google Cloud: publishing and consuming Protobuf events over Pub/Sub with backward-compatible schema changes, deployed on Cloud Run.',
           'Used Redis for caching, deduplication, rate limiting, and feature flags in a multi-tenant SaaS platform.',
           'Modelled data in PostgreSQL with Flyway migrations and type-safe jOOQ queries, and fed analytics and reporting views in BigQuery.',
-          'Wrote non-blocking Kotlin services with coroutines on reactive Spring, and made webhook and message processing reliable with idempotency, retries, rate limits, circuit breakers, and HMAC signature checks.',
         ],
       },
     ],
