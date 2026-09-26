@@ -3,7 +3,7 @@ import type { Certification, Education, Experience, Profile, Project, SkillGroup
 export const profile: Profile = {
   fullName: 'Hamza Hassan',
   title: 'Software Engineer',
-  bio: 'Computer engineer building multichannel messaging and marketing-automation features at BusinessChat, with a background in banking and payment systems (SWIFT MT and ISO 20022). I work across Kotlin, Java, Spring Boot, and React.',
+  bio: 'Software engineer who builds reliable backend systems and the products on top of them. I have worked on messaging platforms, marketing automation, and banking integrations, mostly with Kotlin, Java, and Spring Boot, and I am comfortable across the stack. I care about clean code, solid tests, and software that holds up in production.',
   email: 'hamzahassancode@gmail.com',
   location: 'Amman, Jordan',
   githubUrl: 'https://github.com/hamzahassancode',
