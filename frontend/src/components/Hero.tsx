@@ -56,7 +56,7 @@ function useTypewriter(initialWords: string[], typingSpeed = 80, deletingSpeed =
 }
 
 export default function Hero({ profile, stats, card }: Props) {
-  const typeText = useTypewriter([profile.title, 'Backend Developer', 'Payments & Fintech']);
+  const typeText = useTypewriter([profile.title, 'Full-Stack Developer', 'Messaging & Automation']);
   const [firstName, ...rest] = profile.fullName.split(' ');
 
   return (

@@ -68,4 +68,6 @@ Every push to `main` builds the frontend and publishes it to GitHub Pages via `.
 
 ## Customizing Content
 
+The CV lives in `cv/cv.html`; after editing it, print it to PDF and save the result as `frontend/public/Hamza_Hassan_CV.pdf`.
+
 Edit `frontend/src/data/portfolio.ts` to change the name, bio, email, projects, and skills shown on the site. Setting `email` also enables the contact form.

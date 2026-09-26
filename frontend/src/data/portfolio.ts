@@ -3,7 +3,7 @@ import type { Certification, Education, Experience, Profile, Project, SkillGroup
 export const profile: Profile = {
   fullName: 'Hamza Hassan',
   title: 'Software Engineer',
-  bio: 'Computer engineer building backend systems for banking and payments: SWIFT MT and ISO 20022 message processing, financial APIs, and AI-driven workflows with Kotlin, Java, and Spring Boot.',
+  bio: 'Computer engineer building multichannel messaging and marketing-automation features at BusinessChat, with a background in banking and payment systems (SWIFT MT and ISO 20022). I work across Kotlin, Java, Spring Boot, and React.',
   email: 'hamzahassancode@gmail.com',
   location: 'Amman, Jordan',
   githubUrl: 'https://github.com/hamzahassancode',
@@ -15,9 +15,36 @@ export const experiences: Experience[] = [
   {
     role: 'Software Engineer',
     type: 'Full-time',
-    company: 'ProgressSoft',
-    period: 'Sep 2024 – Present',
+    company: 'BusinessChat',
+    period: 'Jun 2026 – Present',
     current: true,
+    highlights: [
+      {
+        name: 'Multichannel inbox',
+        points: [
+          'Integrated Instagram, Facebook Messenger, and Telegram into the shared inbox, end to end: account connection and provisioning, webhook verification, and inbound and outbound messaging.',
+          'Delivered rich messaging features across channels: media and albums, reactions, message edits, delivery and read statuses, typing indicators, ice breakers, and persistent menus.',
+          'Refactored inbound message handling into a single pipeline with one adapter per channel (WhatsApp, Instagram, Messenger, TikTok, Telegram, and LiveChat), unifying deduplication, contact resolution, and latency telemetry.',
+        ],
+      },
+      {
+        name: 'Marketing automation & WhatsApp',
+        points: [
+          'Built webhook-triggered automations with filtering rules, per-filter variable mappings, and configurable request security.',
+          'Shipped automations for OTP verification with WhatsApp authentication templates, CSAT feedback, purchase reviews, and e-invoices.',
+          'Switched outbound WhatsApp audio to native voice messages with an OGG/Opus transcoding path, and fixed template-send failures.',
+          'Extended billing with prepaid plans and per-channel service-message pricing.',
+        ],
+      },
+    ],
+    tech: ['Kotlin', 'Spring Boot', 'React', 'TypeScript', 'PostgreSQL', 'Redis', 'Pub/Sub', 'Protobuf', 'Meta Graph API'],
+  },
+  {
+    role: 'Software Engineer',
+    type: 'Full-time',
+    company: 'ProgressSoft',
+    period: 'Sep 2024 – May 2026',
+    current: false,
     highlights: [
       {
         name: 'PayHub',
@@ -79,12 +106,13 @@ export const experiences: Experience[] = [
 
 export const skillGroups: SkillGroup[] = [
   { category: 'Languages', skills: ['Kotlin', 'Java', 'Python', 'Dart', 'C++', 'JavaScript', 'TypeScript'] },
-  { category: 'Backend & APIs', skills: ['Spring Boot', 'RESTful APIs', 'FastAPI', 'Django', 'Servlets'] },
+  { category: 'Backend & APIs', skills: ['Spring Boot', 'RESTful APIs', 'Webhooks', 'Protobuf', 'FastAPI', 'Django'] },
+  { category: 'Messaging & Integrations', skills: ['WhatsApp Business API', 'Instagram API', 'Messenger API', 'Telegram Bot API'] },
   { category: 'Payments', skills: ['SWIFT MT', 'ISO 20022 MX', 'Message validation', 'Transaction processing'] },
-  { category: 'Databases', skills: ['PostgreSQL', 'MySQL', 'NoSQL', 'H2', 'Liquibase'] },
-  { category: 'DevOps & Tools', skills: ['Docker', 'Kubernetes', 'GitLab CI/CD', 'Git', 'Linux'] },
+  { category: 'Databases', skills: ['PostgreSQL', 'MySQL', 'Redis', 'NoSQL', 'jOOQ', 'Liquibase'] },
+  { category: 'Cloud & DevOps', skills: ['Docker', 'Kubernetes', 'Google Cloud', 'Pub/Sub', 'CI/CD', 'Git', 'Linux'] },
   { category: 'Testing', skills: ['JUnit', 'Mockito', 'AssertJ', 'WireMock', 'RestAssured'] },
-  { category: 'Frontend & Mobile', skills: ['React', 'HTML', 'CSS', 'Flutter'] },
+  { category: 'Frontend & Mobile', skills: ['React', 'TypeScript', 'HTML', 'CSS', 'Flutter'] },
 ];
 
 export const education: Education = {

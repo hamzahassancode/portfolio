@@ -27,8 +27,8 @@ const currentRole = experiences.find(e => e.current) ?? experiences[0];
 const card = {
   role: currentRole.role,
   company: currentRole.company,
-  focus: ['Payments', 'SWIFT MT/MX'],
-  stack: ['Kotlin', 'Java', 'Spring Boot'],
+  focus: ['Messaging', 'Automation'],
+  stack: ['Kotlin', 'Spring Boot', 'React'],
   location: profile.location ?? '',
 };
 

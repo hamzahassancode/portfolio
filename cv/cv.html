@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Hamza Hassan — CV</title>
+<style>
+@font-face { font-family: Inter; src: url('../frontend/node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2') format('woff2'); font-weight: 100 900; }
+@page { size: A4; margin: 16mm 17mm 16mm 17mm; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Inter, 'Helvetica Neue', Arial, sans-serif; color: #2b2622; font-size: 10pt; line-height: 1.45; }
+a { color: inherit; text-decoration: none; }
+header { text-align: center; margin-bottom: 14pt; }
+h1 { font-size: 22pt; font-weight: 700; letter-spacing: -0.01em; color: #1f1a17; }
+.subtitle { font-size: 11pt; font-weight: 600; color: #935d35; margin: 2pt 0 7pt; }
+.contact { font-size: 9pt; color: #4a3b31; }
+.contact span + span::before { content: "·"; margin: 0 6pt; color: #b8a58f; }
+h2 { break-after: avoid; font-size: 10.5pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #935d35; border-bottom: 1px solid #d9c9b3; padding-bottom: 3pt; margin: 14pt 0 8pt; }
+.summary { color: #3a312b; }
+.job { margin-bottom: 11pt; }
+.job-head, .job-type, h3 { break-after: avoid; }
+li { break-inside: avoid; }
+.job-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12pt; }
+.job-title { font-weight: 700; font-size: 10.5pt; color: #1f1a17; }
+.job-title .company { color: #935d35; }
+.dates { font-weight: 600; font-size: 9.5pt; color: #4a3b31; white-space: nowrap; }
+.job-type { font-size: 8.5pt; color: #7a6858; text-transform: uppercase; letter-spacing: 0.06em; margin: 1pt 0 4pt; }
+h3 { font-size: 9.8pt; font-weight: 700; margin: 5pt 0 2pt; color: #2b2622; }
+ul { padding-left: 13pt; }
+li { margin: 1.5pt 0; }
+li::marker { color: #b07443; }
+.tech { font-size: 8.8pt; color: #5c4d42; margin-top: 3pt; }
+.tech b { color: #2b2622; }
+.project { margin-bottom: 8pt; break-inside: avoid; }
+.project-head { break-after: avoid; }
+.project-name { font-weight: 700; }
+.project-link { display: block; font-size: 8.5pt; color: #935d35; margin-bottom: 1pt; }
+.skills { display: grid; grid-template-columns: 125pt 1fr; row-gap: 3pt; column-gap: 8pt; }
+.skills dt { font-weight: 700; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16pt; }
+.muted { color: #6b5b4e; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Hamza N. Hassan</h1>
+  <p class="subtitle">Software Engineer · Computer Engineering</p>
+  <p class="contact">
+    <span>+962 780 903 483</span>
+    <span><a href="mailto:hamzahassancode@gmail.com">hamzahassancode@gmail.com</a></span>
+    <span>Amman, Jordan</span>
+  </p>
+  <p class="contact" style="margin-top:2pt">
+    <span><a href="https://linkedin.com/in/hamzahassan0">linkedin.com/in/hamzahassan0</a></span>
+    <span><a href="https://github.com/hamzahassancode">github.com/hamzahassancode</a></span>
+    <span><a href="https://hamzahassancode.github.io/portfolio/">hamzahassancode.github.io/portfolio</a></span>
+  </p>
+</header>
+
+<h2>Summary</h2>
+<p class="summary">
+  Software engineer building multichannel messaging and marketing-automation features for a WhatsApp Business and e-commerce SaaS platform, with prior experience in banking and payment systems (SWIFT MT and ISO 20022). Works across the stack with Kotlin, Java, Spring Boot, PostgreSQL, and React, with a focus on clean, well-tested code.
+</p>
+
+<h2>Work Experience</h2>
+
+<div class="job">
+  <div class="job-head">
+    <p class="job-title">Software Engineer · <span class="company">BusinessChat</span></p>
+    <p class="dates">Jun 2026 – Present</p>
+  </div>
+  <p class="job-type">Full-time</p>
+  <h3>Multichannel Inbox</h3>
+  <ul>
+    <li>Integrated <b>Instagram, Facebook Messenger, and Telegram</b> into the shared inbox end to end: account connection and provisioning, webhook verification, and inbound and outbound messaging.</li>
+    <li>Delivered rich messaging features across channels: media and albums, reactions, message edits, delivery and read statuses, typing indicators, ice breakers, and persistent menus.</li>
+    <li>Refactored inbound message handling into a <b>single pipeline with one adapter per channel</b> (WhatsApp, Instagram, Messenger, TikTok, Telegram, LiveChat), unifying deduplication, contact resolution, and latency telemetry.</li>
+  </ul>
+  <h3>Marketing Automation &amp; WhatsApp</h3>
+  <ul>
+    <li>Built <b>webhook-triggered automations</b> with filtering rules, per-filter variable mappings, and configurable request security.</li>
+    <li>Shipped automations for OTP verification with WhatsApp authentication templates, CSAT feedback, purchase reviews, and e-invoices.</li>
+    <li>Switched outbound WhatsApp audio to native <b>voice messages</b> with an OGG/Opus transcoding path, and fixed template-send failures.</li>
+    <li>Extended billing with prepaid plans and per-channel service-message pricing.</li>
+  </ul>
+  <p class="tech"><b>Tech:</b> Kotlin, Spring Boot, React, TypeScript, PostgreSQL, Redis, Google Cloud Pub/Sub, Protobuf, Meta Graph API, Telegram Bot API</p>
+</div>
+
+<div class="job">
+  <div class="job-head">
+    <p class="job-title">Software Engineer · <span class="company">ProgressSoft</span></p>
+    <p class="dates">Sep 2024 – May 2026</p>
+  </div>
+  <p class="job-type">Full-time</p>
+  <h3>PayHub</h3>
+  <ul>
+    <li>Core team member on <b>PayHub</b>, a platform for banking and payment integrations.</li>
+    <li>Implemented <b>SWIFT MT message structural validation</b> and financial message parsing according to SWIFT standards.</li>
+    <li>Developed backend services and <b>RESTful APIs</b> with Java and Spring Boot for financial transaction processing, integrated with Domino-based frontends.</li>
+    <li>Implemented XML and message-format validations (reference matching, ISO 8601 dates, message status verification).</li>
+    <li>Wrote unit and integration tests with JUnit, Mockito, WireMock, and RestAssured; worked with PostgreSQL and MySQL.</li>
+    <li>Contributed to CI/CD pipelines using GitLab, Docker, and Kubernetes, following Clean Code and Agile Scrum practices.</li>
+  </ul>
+  <h3>Payment Messages Agentic Workflow</h3>
+  <ul>
+    <li>Contributed to a proof of concept for an <b>AI-driven coding agent</b> to automate financial message processing and replace core Prowide Core functionality.</li>
+    <li>Designed an agentic workflow for <b>bidirectional MT ↔ MX conversion</b> between SWIFT MT and ISO 20022 MX messages, including mapping and generation logic.</li>
+    <li>Developed AI-assisted validation pipelines for both MT and MX messages, implemented entirely in Kotlin.</li>
+  </ul>
+</div>
+
+<div class="job">
+  <div class="job-head">
+    <p class="job-title">Software Developer · <span class="company">Leading Point</span></p>
+    <p class="dates">Apr 2024 – Sep 2024</p>
+  </div>
+  <p class="job-type">Full-time</p>
+  <ul>
+    <li>Led development of an <b>automation API with Python and FastAPI</b>, significantly reducing manual effort for the process team.</li>
+    <li>Streamlined data retrieval from Azure DevOps, SharePoint, and SonarQube.</li>
+    <li>Developed <b>Q-POINT</b>, a Django-based process management system with an HTML, CSS, and JavaScript frontend, and managed its PostgreSQL databases.</li>
+    <li>Fixed bugs and designed new pages in React for the Vision Point project.</li>
+  </ul>
+</div>
+
+<div class="job">
+  <div class="job-head">
+    <p class="job-title">Software Engineering Intern · <span class="company">Wiley / Atypon</span></p>
+    <p class="dates">May 2023 – Oct 2023</p>
+  </div>
+  <p class="job-type">Internship</p>
+  <ul>
+    <li>Implemented a <b>decentralized, cluster-based NoSQL database</b> using Java, Spring Boot, and Docker.</li>
+    <li>Built a web app with Sockets, Servlets, and Spring Boot to compare them and show how Java web technology evolved.</li>
+    <li>Created an extensible <b>Uno game engine</b> using OOP and design patterns, and a <b>multithreaded Old Maid card game</b> where each player runs as a thread.</li>
+    <li>DevOps: Git and GitHub workflows, Docker-based microservices, and Linux shell scripts for file-analysis reports.</li>
+  </ul>
+</div>
+
+<h2>Education</h2>
+<div class="job">
+  <div class="job-head">
+    <p class="job-title">Bachelor of Engineering, Computer Engineering · <span class="company">University of Jordan</span></p>
+    <p class="dates">Sep 2019 – Jan 2024</p>
+  </div>
+  <p class="muted">Amman, Jordan · High school average: 95.5</p>
+</div>
+
+<h2>Projects</h2>
+<div class="project">
+  <div class="project-head">
+    <p class="project-name">Decentralized Cluster-Based NoSQL Database</p>
+    <a class="project-link" href="https://github.com/hamzahassancode/Decentralized-Cluster-Based-NoSQL-Database">github.com/hamzahassancode/Decentralized-Cluster-Based-NoSQL-Database</a>
+  </div>
+  <ul>
+    <li>Decentralized NoSQL database in Java and Spring Boot with its own REST query API, focused on load balancing, data consistency, and efficient queries.</li>
+    <li>Custom bootstrapping node for cluster initialization and user-node assignment; each node holds a replica in its own Docker container, with no central point of failure.</li>
+    <li>School registration demo app; built with SOLID principles, Clean Code, and thorough testing.</li>
+  </ul>
+</div>
+<div class="project">
+  <div class="project-head">
+    <p class="project-name">Water Pump Automation App</p>
+    <a class="project-link" href="https://github.com/hamzahassancode/Flutter-App-Water-pump-Automation">github.com/hamzahassancode/Flutter-App-Water-pump-Automation</a>
+  </div>
+  <ul>
+    <li>Flutter and Dart app integrated with Firebase and Arduino to monitor tank water levels and solar-cell performance.</li>
+    <li>Remote pump and solar control with manual and automatic modes, plus requesting a refill from nearby water tankers.</li>
+  </ul>
+</div>
+<div class="project">
+  <div class="project-head">
+    <p class="project-name">Cardio Disease Prediction AI</p>
+    <a class="project-link" href="https://github.com/hamzahassancode/Cardio-Disease-Prediction-AI">github.com/hamzahassancode/Cardio-Disease-Prediction-AI</a>
+  </div>
+  <ul>
+    <li>Analyzed a Kaggle dataset of 70,000 records and 13 features; trained RandomForest, SVC, and XGBoost models.</li>
+    <li>Fine-tuned a Keras model reaching 72% accuracy and 88% recall at a 0.3 threshold.</li>
+  </ul>
+</div>
+<div class="project">
+  <div class="project-head">
+    <p class="project-name">Home Decor Shop</p>
+    <a class="project-link" href="https://github.com/hamzahassancode/Home-Decor-Shop-HTML-CSS-JS">github.com/hamzahassancode/Home-Decor-Shop-HTML-CSS-JS</a>
+  </div>
+  <ul>
+    <li>Responsive storefront built with HTML, CSS, and JavaScript, designed for seamless navigation across devices and screen sizes.</li>
+  </ul>
+</div>
+
+<h2>Licenses &amp; Certifications</h2>
+<ul>
+  <li><b>ICPC Jordanian Collegiate Programming Contest (2021)</b>: 11th place locally</li>
+  <li><b>Software Engineering Using Java and DevOps</b>: Wiley / Atypon training certificate</li>
+  <li><b>The Complete 2022 Flutter &amp; Dart Development Course</b>: Udemy</li>
+</ul>
+
+<h2>Technical Skills</h2>
+<dl class="skills">
+  <dt>Languages</dt><dd>Kotlin, Java, Python, TypeScript, JavaScript, Dart, C++</dd>
+  <dt>Backend &amp; APIs</dt><dd>Spring Boot, RESTful APIs, Webhooks, Protobuf, FastAPI, Django, Servlets</dd>
+  <dt>Messaging &amp; Payments</dt><dd>WhatsApp Business API, Instagram &amp; Messenger APIs, Telegram Bot API, SWIFT MT, ISO 20022 MX</dd>
+  <dt>Frontend &amp; Mobile</dt><dd>React, HTML, CSS, Flutter</dd>
+  <dt>Databases</dt><dd>PostgreSQL, MySQL, Redis, NoSQL, H2, jOOQ, Liquibase</dd>
+  <dt>Cloud &amp; DevOps</dt><dd>Docker, Kubernetes (MicroK8s), Google Cloud, Pub/Sub, CI/CD (GitLab), Git, Linux</dd>
+  <dt>Testing</dt><dd>JUnit, AssertJ, Mockito, WireMock, RestAssured, integration testing</dd>
+</dl>
+
+</body>
+</html>
