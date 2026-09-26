@@ -1,10 +1,8 @@
 export interface Profile {
-  id: number;
   fullName: string;
   title: string;
   bio: string;
   email?: string;
-  phone?: string;
   location?: string;
   githubUrl?: string;
   linkedinUrl?: string;
@@ -13,7 +11,6 @@ export interface Profile {
 }
 
 export interface Project {
-  id: number;
   title: string;
   description: string;
   imageUrl?: string;
@@ -21,20 +18,21 @@ export interface Project {
   demoUrl?: string;
   techStack: string[];
   featured: boolean;
-  createdAt: string;
 }
 
 export interface Skill {
-  id: number;
   name: string;
-  category: string;
   level: number;
-  iconUrl?: string;
+}
+
+export interface SkillGroup {
+  category: string;
+  skills: Skill[];
 }
 
 export interface ContactRequest {
   name: string;
   email: string;
-  subject?: string;
+  subject: string;
   message: string;
 }

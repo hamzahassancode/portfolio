@@ -1,84 +1,57 @@
 import { useInView } from '../hooks/useInView';
-import type { Skill } from '../types';
+import type { Skill, SkillGroup } from '../types';
 
 interface Props {
-  groupedSkills: Record<string, Skill[]>;
+  groups: SkillGroup[];
 }
 
-const LEVEL_COLORS = [
-  '',
-  'bg-gray-700 text-gray-300',
-  'bg-blue-900/50 text-blue-300 border-blue-700/50',
-  'bg-primary-900/50 text-primary-300 border-primary-700/50',
-  'bg-accent-600/20 text-accent-300 border-accent-600/40',
-  'bg-gradient-to-r from-primary-600/30 to-accent-600/30 text-white border-primary-500/40',
-];
 const LEVEL_LABELS = ['', 'Beginner', 'Elementary', 'Intermediate', 'Advanced', 'Expert'];
+const MAX_LEVEL = 5;
 
-const CATEGORY_ICONS: Record<string, string> = {
-  'Frontend': '🖥️',
-  'Backend': '⚙️',
-  'Database': '🗄️',
-  'DevOps': '🚀',
-  'Mobile': '📱',
-  'Tools': '🔧',
-  'Languages': '💻',
-  'Cloud': '☁️',
-  'Testing': '🧪',
-  'Design': '🎨',
-};
-
-function SkillChip({ skill, visible }: { skill: Skill; visible: boolean }) {
+function SkillRow({ skill, visible }: { skill: Skill; visible: boolean }) {
   return (
-    <div
-      className={`
-        flex items-center gap-2 px-3 py-2 rounded-xl border
-        transition-all duration-500 cursor-default
-        ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}
-        ${LEVEL_COLORS[skill.level] ?? LEVEL_COLORS[3]}
-        hover:scale-105
-      `}
-    >
-      {skill.iconUrl ? (
-        <img src={skill.iconUrl} alt={skill.name} className="w-4 h-4 object-contain" />
-      ) : (
-        <span className="w-4 h-4 rounded-full bg-current opacity-20 shrink-0" />
-      )}
-      <span className="text-sm font-medium leading-none">{skill.name}</span>
-      <span className="text-[10px] opacity-60 font-medium shrink-0">{LEVEL_LABELS[skill.level]}</span>
-    </div>
+    <li>
+      <div className="flex items-baseline justify-between mb-1.5">
+        <span className="text-sm font-semibold text-cocoa-900">{skill.name}</span>
+        <span className="text-xs text-cocoa-500">{LEVEL_LABELS[skill.level]}</span>
+      </div>
+      <div className="h-1.5 rounded-full bg-cream-300 overflow-hidden">
+        <div
+          className="h-full rounded-full bg-gradient-to-r from-caramel-400 to-caramel-600 transition-[width] duration-1000 ease-out"
+          style={{ width: visible ? `${(skill.level / MAX_LEVEL) * 100}%` : '0%' }}
+        />
+      </div>
+    </li>
   );
 }
 
-export default function SkillsSection({ groupedSkills }: Props) {
+export default function SkillsSection({ groups }: Props) {
   const { ref, inView } = useInView<HTMLDivElement>(0.15);
 
   return (
-    <section id="skills" className="py-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="skills" className="py-20 bg-cream-200/60 border-y border-cream-300">
       <div
-        className={`transition-all duration-700 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-        ref={ref as React.RefObject<HTMLDivElement>}
+        ref={ref}
+        className={`max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-700 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
       >
+        <p className="eyebrow text-center mb-3">What I work with</p>
         <h2 className="section-title text-center">Skills</h2>
-        <p className="section-subtitle text-center">Technologies I work with</p>
+        <p className="section-subtitle text-center">Technologies I use to build reliable products</p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {Object.entries(groupedSkills).map(([category, skills]) => (
-            <div key={category} className="card">
-              <h3 className="text-sm font-semibold text-white mb-4 flex items-center gap-2">
-                <span className="text-lg">{CATEGORY_ICONS[category] ?? '🔹'}</span>
-                {category}
-                <span className="ml-auto text-xs text-gray-600 font-normal">{skills.length} skills</span>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {groups.map(group => (
+            <div key={group.category} className="card">
+              <h3 className="font-serif text-lg font-semibold mb-5 flex items-baseline justify-between">
+                {group.category}
+                <span className="text-xs font-sans font-normal text-cocoa-400">
+                  {group.skills.length} {group.skills.length === 1 ? 'skill' : 'skills'}
+                </span>
               </h3>
-              <div className="flex flex-wrap gap-2">
-              {skills.map((skill) => (
-                  <SkillChip
-                    key={skill.id}
-                    skill={skill}
-                    visible={inView}
-                  />
+              <ul className="flex flex-col gap-4">
+                {group.skills.map(skill => (
+                  <SkillRow key={skill.name} skill={skill} visible={inView} />
                 ))}
-              </div>
+              </ul>
             </div>
           ))}
         </div>

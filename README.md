@@ -41,14 +41,19 @@ The API runs on http://localhost:8080
 
 ### Frontend
 
+The frontend is a static site: its content lives in `frontend/src/data/portfolio.ts` and it does not call the backend.
+
 ```bash
 cd frontend
-cp .env.example .env        # Edit VITE_API_URL if needed
 npm install
 npm run dev
 ```
 
 The frontend runs on http://localhost:5173
+
+### Deployment
+
+Every push to `main` builds the frontend and publishes it to GitHub Pages via `.github/workflows/deploy-pages.yml`.
 
 ## API Endpoints
 
@@ -63,4 +68,4 @@ The frontend runs on http://localhost:5173
 
 ## Customizing Content
 
-Update the seed data in `backend/src/main/resources/db/changelog/db.changelog-1.0.xml` with your real name, bio, projects, and skills.
+Edit `frontend/src/data/portfolio.ts` to change the name, bio, email, projects, and skills shown on the site. Setting `email` also enables the contact form.
