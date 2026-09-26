@@ -4,7 +4,7 @@ export const profile: Profile = {
   fullName: 'Hamza Hassan',
   title: 'Full-Stack Developer',
   bio: 'Passionate developer who loves building elegant solutions to complex problems.',
-  email: undefined,
+  email: 'hamzahassancode@gmail.com',
   location: 'Amman, Jordan',
   githubUrl: 'https://github.com/hamzahassancode',
   linkedinUrl: 'https://linkedin.com/in/hamzahassan0',
