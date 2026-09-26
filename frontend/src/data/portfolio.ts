@@ -43,8 +43,6 @@ export const experiences: Experience[] = [
           'Used Redis for caching, deduplication, rate limiting, and feature flags in a multi-tenant SaaS platform.',
           'Modelled data in PostgreSQL with Flyway migrations and type-safe jOOQ queries, and fed analytics and reporting views in BigQuery.',
           'Wrote non-blocking Kotlin services with coroutines on reactive Spring, and made webhook and message processing reliable with idempotency, retries, rate limits, circuit breakers, and HMAC signature checks.',
-          'Added tracing and latency telemetry, backed changes with integration tests (WireMock, real databases), and kept OpenAPI-generated clients in sync for web and iOS.',
-          'Worked across an ongoing Scala-to-Kotlin migration, and used an AI-assisted workflow (Claude Code) for planning, implementation, and code review.',
         ],
       },
     ],
