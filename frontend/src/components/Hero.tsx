@@ -3,14 +3,8 @@ import type { Profile } from '../types';
 import { DownloadIcon, GitHubIcon, LinkedInIcon, PinIcon } from './Icons';
 import ProfileCodeCard from './ProfileCodeCard';
 
-interface Stat {
-  value: string;
-  label: string;
-}
-
 interface Props {
   profile: Profile;
-  stats: Stat[];
   card: React.ComponentProps<typeof ProfileCodeCard>;
 }
 
@@ -55,7 +49,7 @@ function useTypewriter(initialWords: string[], typingSpeed = 80, deletingSpeed =
   return display;
 }
 
-export default function Hero({ profile, stats, card }: Props) {
+export default function Hero({ profile, card }: Props) {
   const typeText = useTypewriter([profile.title, 'Full-Stack Developer', 'Messaging & Automation']);
   const [firstName, ...rest] = profile.fullName.split(' ');
 
@@ -124,16 +118,6 @@ export default function Hero({ profile, stats, card }: Props) {
         </div>
       </div>
 
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
-        <dl className="grid grid-cols-3 rounded-2xl border border-cream-300 bg-cream-50/70 divide-x divide-cream-300">
-          {stats.map(stat => (
-            <div key={stat.label} className="flex flex-col items-center py-5 px-2 text-center">
-              <dt className="order-2 text-xs sm:text-sm text-cocoa-500 mt-1">{stat.label}</dt>
-              <dd className="order-1 font-serif text-2xl sm:text-3xl font-semibold text-caramel-600">{stat.value}</dd>
-            </div>
-          ))}
-        </dl>
-      </div>
     </section>
   );
 }

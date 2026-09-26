@@ -12,15 +12,8 @@ import {
   experiences,
   featuredProjects,
   profile,
-  projects,
   skillGroups,
 } from '../data/portfolio';
-
-const stats = [
-  { value: String(experiences.length), label: 'Companies' },
-  { value: String(projects.length), label: 'Projects' },
-  { value: '11th', label: 'ICPC Jordan 2021' },
-];
 
 const currentRole = experiences.find(e => e.current) ?? experiences[0];
 
@@ -47,7 +40,7 @@ function AnimatedSection({ children }: { children: React.ReactNode }) {
 export default function Home() {
   return (
     <>
-      <Hero profile={profile} stats={stats} card={card} />
+      <Hero profile={profile} card={card} />
 
       <ExperienceSection experiences={experiences} />
 
