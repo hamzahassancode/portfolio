@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import type { Profile } from '../types';
-import { GitHubIcon, LinkedInIcon, PinIcon } from './Icons';
+import { DownloadIcon, GitHubIcon, LinkedInIcon, PinIcon } from './Icons';
+import ProfileCodeCard from './ProfileCodeCard';
 
 interface Stat {
   value: string;
@@ -10,6 +11,7 @@ interface Stat {
 interface Props {
   profile: Profile;
   stats: Stat[];
+  card: React.ComponentProps<typeof ProfileCodeCard>;
 }
 
 function useTypewriter(initialWords: string[], typingSpeed = 80, deletingSpeed = 45, pause = 2200) {
@@ -53,8 +55,8 @@ function useTypewriter(initialWords: string[], typingSpeed = 80, deletingSpeed =
   return display;
 }
 
-export default function Hero({ profile, stats }: Props) {
-  const typeText = useTypewriter([profile.title, 'Backend Engineer', 'Problem Solver']);
+export default function Hero({ profile, stats, card }: Props) {
+  const typeText = useTypewriter([profile.title, 'Backend Developer', 'Payments & Fintech']);
   const [firstName, ...rest] = profile.fullName.split(' ');
 
   return (
@@ -64,7 +66,7 @@ export default function Hero({ profile, stats }: Props) {
         aria-hidden="true"
       />
 
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-[1.4fr_1fr] gap-14 items-center">
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-[1.2fr_1fr] gap-12 items-center">
         <div className="opacity-0 animate-fade-in-up">
           <span className="inline-flex items-center gap-2 bg-sage-100 text-sage-700 text-xs font-semibold px-3.5 py-1.5 rounded-full mb-7">
             <span className="w-1.5 h-1.5 bg-sage-500 rounded-full" />
@@ -86,8 +88,14 @@ export default function Hero({ profile, stats }: Props) {
           <p className="text-cocoa-700 text-lg max-w-xl mb-9 leading-relaxed">{profile.bio}</p>
 
           <div className="flex flex-wrap gap-3 mb-8">
+            {profile.resumeUrl && (
+              <a href={profile.resumeUrl} download className="btn-primary">
+                <DownloadIcon />
+                Download CV
+              </a>
+            )}
             {profile.linkedinUrl && (
-              <a href={profile.linkedinUrl} target="_blank" rel="noreferrer" className="btn-primary">
+              <a href={profile.linkedinUrl} target="_blank" rel="noreferrer" className="btn-outline">
                 <LinkedInIcon />
                 LinkedIn
               </a>
@@ -96,11 +104,6 @@ export default function Hero({ profile, stats }: Props) {
               <a href={profile.githubUrl} target="_blank" rel="noreferrer" className="btn-outline">
                 <GitHubIcon />
                 GitHub
-              </a>
-            )}
-            {profile.resumeUrl && (
-              <a href={profile.resumeUrl} target="_blank" rel="noreferrer" className="btn-outline">
-                Resume
               </a>
             )}
           </div>
@@ -113,22 +116,11 @@ export default function Hero({ profile, stats }: Props) {
           )}
         </div>
 
-        <div className="relative hidden md:flex items-center justify-center h-96 opacity-0 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-          <div className="absolute w-72 h-72 md:w-80 md:h-80 rounded-full border border-caramel-200" aria-hidden="true" />
-          <div className="absolute w-60 h-60 md:w-64 md:h-64 rounded-full border border-dashed border-caramel-300" aria-hidden="true" />
-          {profile.avatarUrl ? (
-            <img
-              src={profile.avatarUrl}
-              alt={profile.fullName}
-              className="relative w-48 h-48 md:w-52 md:h-52 rounded-full object-cover shadow-xl shadow-caramel-700/20"
-            />
-          ) : (
-            <div className="relative w-48 h-48 md:w-52 md:h-52 rounded-full bg-gradient-to-br from-caramel-200 via-cream-300 to-caramel-100 flex items-center justify-center shadow-xl shadow-caramel-700/15">
-              <span className="font-serif text-7xl font-semibold text-caramel-700">
-                {profile.fullName.split(' ').map(n => n.charAt(0)).join('')}
-              </span>
-            </div>
-          )}
+        <div className="relative flex justify-center md:justify-end opacity-0 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+          <div className="absolute -inset-6 rounded-[2rem] bg-caramel-200/40 blur-2xl" aria-hidden="true" />
+          <div className="relative w-full flex justify-center md:justify-end">
+            <ProfileCodeCard {...card} />
+          </div>
         </div>
       </div>
 

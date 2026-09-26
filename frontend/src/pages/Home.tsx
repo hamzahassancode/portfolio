@@ -1,16 +1,36 @@
 import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
 import SkillsSection from '../components/SkillsSection';
+import ExperienceSection from '../components/ExperienceSection';
+import EducationSection from '../components/EducationSection';
 import ProjectCard from '../components/ProjectCard';
 import { ArrowRightIcon } from '../components/Icons';
 import { useInView } from '../hooks/useInView';
-import { featuredProjects, profile, projects, skillGroups } from '../data/portfolio';
+import {
+  certifications,
+  education,
+  experiences,
+  featuredProjects,
+  profile,
+  projects,
+  skillGroups,
+} from '../data/portfolio';
 
 const stats = [
+  { value: String(experiences.length), label: 'Companies' },
   { value: String(projects.length), label: 'Projects' },
-  { value: String(skillGroups.reduce((sum, g) => sum + g.skills.length, 0)), label: 'Core skills' },
-  { value: String(new Set(projects.flatMap(p => p.techStack)).size), label: 'Technologies used' },
+  { value: '11th', label: 'ICPC Jordan 2021' },
 ];
+
+const currentRole = experiences.find(e => e.current) ?? experiences[0];
+
+const card = {
+  role: currentRole.role,
+  company: currentRole.company,
+  focus: ['Payments', 'SWIFT MT/MX'],
+  stack: ['Kotlin', 'Java', 'Spring Boot'],
+  location: profile.location ?? '',
+};
 
 function AnimatedSection({ children }: { children: React.ReactNode }) {
   const { ref, inView } = useInView<HTMLDivElement>(0.1);
@@ -27,7 +47,9 @@ function AnimatedSection({ children }: { children: React.ReactNode }) {
 export default function Home() {
   return (
     <>
-      <Hero profile={profile} stats={stats} />
+      <Hero profile={profile} stats={stats} card={card} />
+
+      <ExperienceSection experiences={experiences} />
 
       <SkillsSection groups={skillGroups} />
 
@@ -49,6 +71,8 @@ export default function Home() {
           </div>
         </AnimatedSection>
       </section>
+
+      <EducationSection education={education} certifications={certifications} />
     </>
   );
 }

@@ -6,7 +6,6 @@ export interface Profile {
   location?: string;
   githubUrl?: string;
   linkedinUrl?: string;
-  avatarUrl?: string;
   resumeUrl?: string;
 }
 
@@ -20,14 +19,37 @@ export interface Project {
   featured: boolean;
 }
 
-export interface Skill {
-  name: string;
-  level: number;
-}
-
 export interface SkillGroup {
   category: string;
-  skills: Skill[];
+  skills: string[];
+}
+
+export interface ExperienceHighlight {
+  name?: string;
+  points: string[];
+}
+
+export interface Experience {
+  role: string;
+  type: string;
+  company: string;
+  period: string;
+  current: boolean;
+  highlights: ExperienceHighlight[];
+  tech: string[];
+}
+
+export interface Education {
+  degree: string;
+  school: string;
+  location: string;
+  period: string;
+}
+
+export interface Certification {
+  title: string;
+  issuer: string;
+  year?: string;
 }
 
 export interface ContactRequest {

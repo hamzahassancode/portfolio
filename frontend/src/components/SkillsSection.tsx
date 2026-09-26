@@ -1,28 +1,8 @@
 import { useInView } from '../hooks/useInView';
-import type { Skill, SkillGroup } from '../types';
+import type { SkillGroup } from '../types';
 
 interface Props {
   groups: SkillGroup[];
-}
-
-const LEVEL_LABELS = ['', 'Beginner', 'Elementary', 'Intermediate', 'Advanced', 'Expert'];
-const MAX_LEVEL = 5;
-
-function SkillRow({ skill, visible }: { skill: Skill; visible: boolean }) {
-  return (
-    <li>
-      <div className="flex items-baseline justify-between mb-1.5">
-        <span className="text-sm font-semibold text-cocoa-900">{skill.name}</span>
-        <span className="text-xs text-cocoa-500">{LEVEL_LABELS[skill.level]}</span>
-      </div>
-      <div className="h-1.5 rounded-full bg-cream-300 overflow-hidden">
-        <div
-          className="h-full rounded-full bg-gradient-to-r from-caramel-400 to-caramel-600 transition-[width] duration-1000 ease-out"
-          style={{ width: visible ? `${(skill.level / MAX_LEVEL) * 100}%` : '0%' }}
-        />
-      </div>
-    </li>
-  );
 }
 
 export default function SkillsSection({ groups }: Props) {
@@ -36,20 +16,20 @@ export default function SkillsSection({ groups }: Props) {
       >
         <p className="eyebrow text-center mb-3">What I work with</p>
         <h2 className="section-title text-center">Skills</h2>
-        <p className="section-subtitle text-center">Technologies I use to build reliable products</p>
+        <p className="section-subtitle text-center">Technologies and domains I use to build reliable products</p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-5 [&>*]:mb-5">
           {groups.map(group => (
-            <div key={group.category} className="card">
-              <h3 className="font-serif text-lg font-semibold mb-5 flex items-baseline justify-between">
-                {group.category}
-                <span className="text-xs font-sans font-normal text-cocoa-400">
-                  {group.skills.length} {group.skills.length === 1 ? 'skill' : 'skills'}
-                </span>
-              </h3>
-              <ul className="flex flex-col gap-4">
+            <div key={group.category} className="card break-inside-avoid">
+              <h3 className="font-serif text-lg font-semibold mb-4">{group.category}</h3>
+              <ul className="flex flex-wrap gap-2">
                 {group.skills.map(skill => (
-                  <SkillRow key={skill.name} skill={skill} visible={inView} />
+                  <li
+                    key={skill}
+                    className="text-sm text-cocoa-900 bg-cream-100 border border-cream-300 px-3 py-1.5 rounded-full font-medium"
+                  >
+                    {skill}
+                  </li>
                 ))}
               </ul>
             </div>

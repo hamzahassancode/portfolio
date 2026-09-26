@@ -1,63 +1,128 @@
-import type { Profile, Project, SkillGroup } from '../types';
+import type { Certification, Education, Experience, Profile, Project, SkillGroup } from '../types';
 
 export const profile: Profile = {
   fullName: 'Hamza Hassan',
-  title: 'Full-Stack Developer',
-  bio: 'Passionate developer who loves building elegant solutions to complex problems.',
+  title: 'Software Engineer',
+  bio: 'Computer engineer building backend systems for banking and payments: SWIFT MT and ISO 20022 message processing, financial APIs, and AI-driven workflows with Kotlin, Java, and Spring Boot.',
   email: 'hamzahassancode@gmail.com',
   location: 'Amman, Jordan',
   githubUrl: 'https://github.com/hamzahassancode',
   linkedinUrl: 'https://linkedin.com/in/hamzahassan0',
+  resumeUrl: `${import.meta.env.BASE_URL}Hamza_Hassan_CV.pdf`,
 };
 
+export const experiences: Experience[] = [
+  {
+    role: 'Software Engineer',
+    type: 'Full-time',
+    company: 'ProgressSoft',
+    period: 'Sep 2024 – Present',
+    current: true,
+    highlights: [
+      {
+        name: 'PayHub',
+        points: [
+          'Core team member on PayHub, a platform for banking and payment integrations.',
+          'Implemented SWIFT MT structural validation and financial message parsing to SWIFT standards.',
+          'Built Java and Spring Boot services and RESTful APIs for financial transaction processing.',
+          'Wrote unit and integration tests with JUnit, Mockito, WireMock, and RestAssured; contributed to GitLab CI/CD with Docker and Kubernetes.',
+        ],
+      },
+      {
+        name: 'Payment Messages Agentic Workflow',
+        points: [
+          'Contributed to a proof of concept for an AI coding agent that replaces core Prowide Core functionality in banking integrations.',
+          'Designed an agentic workflow for bidirectional conversion between SWIFT MT and ISO 20022 MX messages.',
+          'Built AI-assisted validation pipelines for both MT and MX messages, implemented entirely in Kotlin.',
+        ],
+      },
+    ],
+    tech: ['Kotlin', 'Java', 'Spring Boot', 'PostgreSQL', 'MySQL', 'Docker', 'Kubernetes', 'GitLab CI/CD'],
+  },
+  {
+    role: 'Software Developer',
+    type: 'Full-time',
+    company: 'Leading Point',
+    period: 'Apr 2024 – Sep 2024',
+    current: false,
+    highlights: [
+      {
+        points: [
+          'Led development of an automation API with Python and FastAPI, cutting manual work for the process team.',
+          'Streamlined data retrieval from Azure DevOps, SharePoint, and SonarQube.',
+          'Built Q-POINT, a Django-based process management system, and managed its PostgreSQL databases.',
+          'Fixed bugs and designed new pages in React for the Vision Point project.',
+        ],
+      },
+    ],
+    tech: ['Python', 'FastAPI', 'Django', 'React', 'PostgreSQL'],
+  },
+  {
+    role: 'Software Engineering Intern',
+    type: 'Internship',
+    company: 'Wiley / Atypon',
+    period: 'May 2023 – Oct 2023',
+    current: false,
+    highlights: [
+      {
+        points: [
+          'Built a decentralized, cluster-based NoSQL database with Java, Spring Boot, and Docker.',
+          'Created a web app comparing Sockets, Servlets, and Spring Boot to show how Java web technology evolved.',
+          'Designed an extensible Uno game engine with OOP and design patterns, and a multithreaded Old Maid card game.',
+          'Practised DevOps: Git workflows, Docker-based microservices, and Linux shell scripting.',
+        ],
+      },
+    ],
+    tech: ['Java', 'Spring Boot', 'Docker', 'Linux', 'Git'],
+  },
+];
+
 export const skillGroups: SkillGroup[] = [
-  {
-    category: 'Backend',
-    skills: [
-      { name: 'Kotlin', level: 5 },
-      { name: 'Spring Boot', level: 5 },
-      { name: 'Java', level: 4 },
-    ],
-  },
-  {
-    category: 'Frontend',
-    skills: [
-      { name: 'React', level: 4 },
-      { name: 'TypeScript', level: 4 },
-    ],
-  },
-  {
-    category: 'Database',
-    skills: [{ name: 'PostgreSQL', level: 4 }],
-  },
-  {
-    category: 'DevOps',
-    skills: [{ name: 'Docker', level: 3 }],
-  },
+  { category: 'Languages', skills: ['Kotlin', 'Java', 'Python', 'Dart', 'C++', 'JavaScript', 'TypeScript'] },
+  { category: 'Backend & APIs', skills: ['Spring Boot', 'RESTful APIs', 'FastAPI', 'Django', 'Servlets'] },
+  { category: 'Payments', skills: ['SWIFT MT', 'ISO 20022 MX', 'Message validation', 'Transaction processing'] },
+  { category: 'Databases', skills: ['PostgreSQL', 'MySQL', 'NoSQL', 'H2', 'Liquibase'] },
+  { category: 'DevOps & Tools', skills: ['Docker', 'Kubernetes', 'GitLab CI/CD', 'Git', 'Linux'] },
+  { category: 'Testing', skills: ['JUnit', 'Mockito', 'AssertJ', 'WireMock', 'RestAssured'] },
+  { category: 'Frontend & Mobile', skills: ['React', 'HTML', 'CSS', 'Flutter'] },
+];
+
+export const education: Education = {
+  degree: 'Bachelor of Engineering, Computer Engineering',
+  school: 'University of Jordan',
+  location: 'Amman, Jordan',
+  period: 'Sep 2019 – Jan 2024',
+};
+
+export const certifications: Certification[] = [
+  { title: 'ICPC Jordanian Collegiate Programming Contest: 11th place', issuer: 'ICPC', year: '2021' },
+  { title: 'Software Engineering Using Java and DevOps', issuer: 'Wiley / Atypon' },
+  { title: 'The Complete Flutter & Dart Development Course', issuer: 'Udemy' },
 ];
 
 export const projects: Project[] = [
   {
-    title: 'Portfolio Website',
-    description: 'Personal portfolio built with Kotlin Spring Boot and React.',
-    techStack: ['Kotlin', 'Spring Boot', 'React', 'TypeScript', 'PostgreSQL'],
-    repoUrl: 'https://github.com/hamzahassancode/portfolio',
+    title: 'Decentralized Cluster-Based NoSQL Database',
+    description:
+      'A decentralized NoSQL database with its own query API instead of SQL, focused on load balancing, data consistency, and efficient queries. A custom bootstrapping node initializes the cluster and assigns users to nodes, and every node holds a replica in its own Docker container, so there is no single point of failure. Includes a school registration demo app.',
+    techStack: ['Java', 'Spring Boot', 'Docker', 'Distributed Systems'],
+    repoUrl: 'https://github.com/hamzahassancode/Decentralized-Cluster-Based-NoSQL-Database',
+    featured: true,
+  },
+  {
+    title: 'Water Pump Automation App',
+    description:
+      'A Flutter app that monitors home water tanks and solar cells through Firebase and Arduino. Users control the pump remotely, switch between manual and automatic modes, and request a refill from nearby water tankers when levels run low.',
+    techStack: ['Flutter', 'Dart', 'Firebase', 'Arduino'],
+    repoUrl: 'https://github.com/hamzahassancode/Flutter-App-Water-pump-Automation',
     featured: true,
   },
   {
     title: 'Cardio Disease Prediction AI',
     description:
-      'An AI project predicting cardiovascular diseases by exploring and analyzing a Kaggle dataset. Includes classical machine learning models and fine-tuned neural networks, achieving 73% accuracy with a detailed comparison of model performance.',
-    techStack: ['Python', 'Machine Learning', 'Neural Networks', 'Kaggle'],
+      'Predicts cardiovascular disease from a Kaggle dataset of 70,000 records and 13 features. Compares RandomForest, SVC, and XGBoost with a fine-tuned Keras model that reached 72% accuracy and 88% recall at a 0.3 threshold.',
+    techStack: ['Python', 'Keras', 'XGBoost', 'Machine Learning'],
     repoUrl: 'https://github.com/hamzahassancode/Cardio-Disease-Prediction-AI',
-    featured: true,
-  },
-  {
-    title: 'Decentralized Cluster-Based NoSQL Database',
-    description:
-      'A distributed NoSQL database system handling JSON-based document storage, supporting full DB and document operations. Addresses load balancing, data consistency, security, and efficient node communication. Solves key challenges like document-to-node affinity, optimistic locking, and custom indexing.',
-    techStack: ['Java', 'Distributed Systems', 'NoSQL', 'Clustering'],
-    repoUrl: 'https://github.com/hamzahassancode/Decentralized-Cluster-Based-NoSQL-Database',
     featured: true,
   },
   {
@@ -71,24 +136,16 @@ export const projects: Project[] = [
   {
     title: 'Money Transfer Full-Stack App',
     description:
-      'A full-stack money transfer application built with Spring Boot backend and React frontend, enabling users to manage accounts and perform secure fund transfers.',
-    techStack: ['Spring Boot', 'React', 'Java', 'REST API'],
+      'A full-stack money transfer application built with a Spring Boot backend and React frontend, enabling users to manage accounts and perform secure fund transfers.',
+    techStack: ['Java', 'Spring Boot', 'React', 'REST API'],
     repoUrl: 'https://github.com/hamzahassancode/cliq-transfer-springboot-react',
-    featured: false,
-  },
-  {
-    title: 'Flutter Water Pump Automation App',
-    description:
-      'A comprehensive Flutter mobile app for monitoring and managing water pump processes within homes. Provides real-time control and automation of water management systems.',
-    techStack: ['Flutter', 'Dart', 'IoT', 'Mobile'],
-    repoUrl: 'https://github.com/hamzahassancode/Flutter-App-Water-pump-Automation',
     featured: false,
   },
   {
     title: 'Uno Game Engine',
     description:
       'An extensible Uno card game engine built with object-oriented design patterns, enabling developers to build and extend Uno game variants with minimal effort.',
-    techStack: ['Java', 'OOP', 'Design Patterns', 'Game Engine'],
+    techStack: ['Java', 'OOP', 'Design Patterns'],
     repoUrl: 'https://github.com/hamzahassancode/Uno-Game-Engine',
     featured: false,
   },
@@ -98,6 +155,22 @@ export const projects: Project[] = [
       'A multithreaded Java simulation of the Old Maid card game where each player runs as an independent thread, demonstrating Java concurrency and thread synchronization.',
     techStack: ['Java', 'Multithreading', 'Concurrency'],
     repoUrl: 'https://github.com/hamzahassancode/The-Old-Maid-Card-Game',
+    featured: false,
+  },
+  {
+    title: 'Home Decor Shop',
+    description:
+      'A responsive storefront for home decor, built with plain HTML, CSS, and JavaScript, with layouts that adapt cleanly across devices and screen sizes.',
+    techStack: ['HTML', 'CSS', 'JavaScript', 'Responsive Design'],
+    repoUrl: 'https://github.com/hamzahassancode/Home-Decor-Shop-HTML-CSS-JS',
+    featured: false,
+  },
+  {
+    title: 'Portfolio Website',
+    description:
+      'This site: a static React and TypeScript portfolio styled with Tailwind CSS and deployed to GitHub Pages, with a Kotlin Spring Boot API in the same repository.',
+    techStack: ['React', 'TypeScript', 'Tailwind CSS', 'Kotlin'],
+    repoUrl: 'https://github.com/hamzahassancode/portfolio',
     featured: false,
   },
 ];
